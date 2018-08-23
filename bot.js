@@ -205,31 +205,26 @@ function play(guild, song) {
 
 
 
-bot.on('message', message => {// By : Kahrba. || تم التطوير من قبل كههربا
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!botkahrba.includes(message.author.id)) return;
-// By : Kahrba. || تم التطوير من قبل كههربا
-  if (message.content.startsWith(initcmd + '1')) {
-  bot.user.setActivity(argresult, {type:'WATCHING'});// By : Kahrba. || تم التطوير من قبل كههربا
-      message.channel.send(` ☑ Client Activity Now Is : \`Watching ${argresult} \` `)
-  } else
-  if (message.content.startsWith(initcmd + 'ls')) {// By : Kahrba. || تم التطوير من قبل كههربا
-  bot.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(` ☑ Client Activity Now Is : \`Listening ${argresult} \` `)
-  } else
-  if (message.content.startsWith(initcmd + 'st')) {// By : Kahrba. || تم التطوير من قبل كههربا
-    bot.user.setGame(argresult, "https://www.twitch.tv/i_kahrba999");
-     message.channel.send(` ☑ Client Activity Now Is : \`Streaming ${argresult} \` `)
-  }
-  if (message.content.startsWith(initcmd + 'setname')) {// By : Kahrba. || تم التطوير من قبل كههربا
-  bot.user.setUsername(argresult).then
-      message.channel.send(` Client UserName Changed To : \` ${argresult}\` `)
-} else
-if (message.content.startsWith(initcmd + 'setavatar')) {// By : Kahrba. || تم التطوير من قبل كههربا
-  bot.user.setAvatar(argresult);
-      message.channel.send(` Client Avatar Changed To : \` ${argresult}\` `)
+client.on('message', message => {
+  if (!message.content.startsWith(PREFIX)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id !== "439187325503930369") return;
 
+if (message.content.startsWith(PREFIX + 'setstream')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
+	 console.log('test' + argresult);
+    message.channel.sendMessage(`Streaming: **${argresult}`)
+}
+
+if (message.content.startsWith(PREFIX + 'setname')) {
+  client.user.setUsername(argresult).then
+	  message.channel.sendMessage(`تم تغيير آسم البوت بنجآح **${argresult}**`)
+  return message.reply("** لا يمكنك تغيير تغيير آسم البوت الآن آلا بعد سآعتين **");
+}
+if (message.content.startsWith(PREFIX + 'setavatar')) {
+  client.user.setAvatar(argresult);
+   message.channel.sendMessage(`تم تغيير صورة البوت بنجآح **${argresult}**`);
+}
 });
-
-
 client.login(process.env.BOT_TOKEN);
