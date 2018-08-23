@@ -228,12 +228,8 @@ bot.on('message', message => {// By : Kahrba. || تم التطوير من قبل
 if (message.content.startsWith(initcmd + 'setavatar')) {// By : Kahrba. || تم التطوير من قبل كههربا
   bot.user.setAvatar(argresult);
       message.channel.send(` Client Avatar Changed To : \` ${argresult}\` `)
-}// By : Kahrba. || تم التطوير من قبل كههربا
+
 });
-// By : Kahrba. || تم التطوير من قبل كههربا
-/*---------------------*/
-/* نهاية اوامر الخاصة بصاحب البوت. */
-/*-------------------*/
-// By : Kahrba. || تم التطوير من قبل كههربا
+
 
 client.login(process.env.BOT_TOKEN);
