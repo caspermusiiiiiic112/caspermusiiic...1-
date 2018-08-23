@@ -205,31 +205,35 @@ function play(guild, song) {
 
 
 
-const adminprefix = "1";
-const devs = ['9999999998889999'];
-client.on('message', message => {
-  var argresult = message.content.split(` `).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
-    
-if (message.content.startsWith(adminprefix + 'setgame')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
-} else 
-  if (message.content.startsWith(adminprefix + 'setname')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+bot.on('message', message => {// By : Kahrba. || تم التطوير من قبل كههربا
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!botkahrba.includes(message.author.id)) return;
+// By : Kahrba. || تم التطوير من قبل كههربا
+  if (message.content.startsWith(initcmd + '1')) {
+  bot.user.setActivity(argresult, {type:'WATCHING'});// By : Kahrba. || تم التطوير من قبل كههربا
+      message.channel.send(` ☑ Client Activity Now Is : \`Watching ${argresult} \` `)
+  } else
+  if (message.content.startsWith(initcmd + 'ls')) {// By : Kahrba. || تم التطوير من قبل كههربا
+  bot.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(` ☑ Client Activity Now Is : \`Listening ${argresult} \` `)
+  } else
+  if (message.content.startsWith(initcmd + 'st')) {// By : Kahrba. || تم التطوير من قبل كههربا
+    bot.user.setGame(argresult, "https://www.twitch.tv/i_kahrba999");
+     message.channel.send(` ☑ Client Activity Now Is : \`Streaming ${argresult} \` `)
+  }
+  if (message.content.startsWith(initcmd + 'setname')) {// By : Kahrba. || تم التطوير من قبل كههربا
+  bot.user.setUsername(argresult).then
+      message.channel.send(` Client UserName Changed To : \` ${argresult}\` `)
 } else
-  if (message.content.startsWith(adminprefix + 'setavatar')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-      } else     
-if (message.content.startsWith(adminprefix + 'setT')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/idk");
-    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
-}
-
+if (message.content.startsWith(initcmd + 'setavatar')) {// By : Kahrba. || تم التطوير من قبل كههربا
+  bot.user.setAvatar(argresult);
+      message.channel.send(` Client Avatar Changed To : \` ${argresult}\` `)
+}// By : Kahrba. || تم التطوير من قبل كههربا
 });
+// By : Kahrba. || تم التطوير من قبل كههربا
+/*---------------------*/
+/* نهاية اوامر الخاصة بصاحب البوت. */
+/*-------------------*/
+// By : Kahrba. || تم التطوير من قبل كههربا
 
-
-client.login(process.env.BOT_TOKEN);
+bot.login(botSettings.token);
